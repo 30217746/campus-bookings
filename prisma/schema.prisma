@@ -26,3 +26,13 @@ enum ResourceType {
   equipment
   sport
 }
+
+model Booking {
+  id int @id @default(autoincrement())
+  startsAt DateTime
+  endsAt DateTime
+  resource Resource @relation(fields: [resourceId], references: [id])
+  resourceId Int
+  note String?
+  createdAt DateTime @default(now())
+}
